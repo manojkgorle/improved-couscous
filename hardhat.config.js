@@ -30,7 +30,7 @@ module.exports = {
       },
     }],
   },
-  defaultNetwork: "proxy",
+  defaultNetwork: "precompile",
   networks: {
     hardhat: {
     },
@@ -39,11 +39,11 @@ module.exports = {
       accounts: { mnemonic },
       chainId: 31337
     },
-    // precompile: {
-    //   url: process.env.PRECOMPILE_RPC_URL,
-    //   accounts: [process.env.PRECOMPILE_PRIVATEKEY],
-    //   chainId: process.env.PRECOMPILE_CHAINID
-    // },
+    precompile: {
+      url: process.env.PRECOMPILE_RPC_URL,
+      accounts: [process.env.PRECOMPILE_PRIVATEKEY],
+      chainId: 11223344
+    },
 
   },
   typechain: {

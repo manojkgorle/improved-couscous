@@ -77,10 +77,12 @@ app.post("/kyc", async (req, res) => {
                 // @todo validate signature validateSig(walletAddress, walletSignature)
                 addUserCred(name, email, phone, country, address, idType, idNumber, walletAddress);
                 //0x0200000000000000000000000000000000000002 --> txAllowList precompile address
-                // let txAllowListInstance = await getAllowListI("0x0200000000000000000000000000000000000002");
-                // let tx = await txAllowListInstance.setEnabled(walletAddress);
+                let txAllowListInstance = await getAllowListI("0x0200000000000000000000000000000000000002");
+                // 0x0200000000000000000000000000000000000000 --> contractDeployment allow list precompile address
+                let tx = await txAllowListInstance.setEnabled(walletAddress);
 
                 res.statusCode = 200;
+                res.json = "Success"
                 res.send();
             }
         })
